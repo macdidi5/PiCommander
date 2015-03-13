@@ -29,7 +29,7 @@ MQTT（Message Queuing Telemetry Transport）是由IBM與Eurotech共同研發的
 
 PiCommander使用MQTT在不同類型的裝置傳送與接收訊息：
 
-![](https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander_001.png)
+![](https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander001.png)
 
 PiCommander包含下列三個部份：
 
@@ -51,20 +51,31 @@ PiCommander包含下列三個部份：
 
 1. 啟動PiCommand App，選擇連線到MQTT Broker：
 
-		
+	![](https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander002.png)
 
 2. 輸入MQTT Broker（Raspberry PI）的IP位址後選擇連線：
 
-		
+	![](https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander003.png)
 
-3. x
-4. x
-5. x
-6. x
-7. x
-8. x
-9. x
+3. 連線到MQTT Broker以後，選擇新增控制項：
 
+	![](https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander004.png)
+
+4. 選擇已經連接好設備與零件的GPIO針腳編號（[Pi4J](http://pi4j.com/pins/model-2b-rev1.html)），輸入設備的說明後選擇新增：
+
+	![](https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander005.png)
+
+5. 新增後的控制項可以控制指定GPIO針腳，切換高電壓與低電壓：
+
+	![](https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander006.png)	![](https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander007.png)
+
+6. 在Raspberry Pi連接更多設備與零件以後，使用同樣的方式新增與設定控制項：
+
+	![](https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander008.png)
+
+7. 不需要的控制項可以在畫面長按後選擇刪除：
+
+	![](https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander009.png)
 
 
 
