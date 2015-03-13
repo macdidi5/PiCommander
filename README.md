@@ -5,8 +5,8 @@
 
 Raspberry Pi連接的零件，有三個LED、蜂鳴器，還有透過繼電器模組控制桌燈：
 
-![](https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander010.png)
-![](https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander011.png)
+![](https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander010.jpg)
+![](https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander011.jpg)
 
 實際操作影片：
 
