@@ -32,8 +32,6 @@
 
 		java -version
 		
-		java version "1.8.0"		Java(TM) SE Runtime Environment (build 1.8.0-b132)		Java HotSpot(TM) Client VM (build 25.0-b70, mixed mode)
-
 4. 如果顯示下列的訊息，表示Raspberry Pi已經安裝Java SE 8：
 
 		java version "1.8.0"		Java(TM) SE Runtime Environment (build 1.8.0-b132)		Java HotSpot(TM) Client VM (build 25.0-b70, mixed mode)
@@ -75,7 +73,7 @@
 
 5. 等候畫面出現下列的訊息，表示PiCommanderService已經提供服務：
 
-		PiCommanderService ready...
+		PiCommanderService Ready...
 
 ### PiCommander for Android
 
