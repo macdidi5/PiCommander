@@ -14,7 +14,9 @@
 		
 4. 如果顯示下列的訊息，表示Raspberry Pi已經安裝Java SE 8：
 
-		java version "1.8.0"		Java(TM) SE Runtime Environment (build 1.8.0-b132)		Java HotSpot(TM) Client VM (build 25.0-b70, mixed mode)
+		java version "1.8.0"
+		Java(TM) SE Runtime Environment (build 1.8.0-b132)
+		Java HotSpot(TM) Client VM (build 25.0-b70, mixed mode)
 
 5. 執行下列的指令安裝Mosquitto（MQTT Broker Server）：
 
@@ -62,11 +64,11 @@
 
 你可以參考下面的線路圖連接好測用的零件：
 
-<a href="https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander004.png"><img src="https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander010.png" width="600"/></a>
+<a href="https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander010.png"><img src="https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander010.png" width="600"/></a>
 
 連接繼電器模組以後也可以控制家用電器：
 
-<a href="https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander004.png"><img src="https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander011.png" width="600"/></a>
+<a href="https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander011.png"><img src="https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander011.png" width="600"/></a>
 
 ## PiCommander for Android
 
