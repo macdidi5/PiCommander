@@ -86,8 +86,7 @@ PiCommander包含下列三個部份：
 
 7. 不需要的控制項可以在畫面長按後選擇刪除：
 
-	![](https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander009.png)
-
+	![](https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander009.png)	
 ## 下一階段
 
 公開原始程式碼與相關實作的說明。
