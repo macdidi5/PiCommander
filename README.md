@@ -45,7 +45,7 @@ PiCommander使用MQTT在不同類型的裝置傳送與接收訊息：
 PiCommander包含下列三個部份：
 
 1. 安裝在Raspberry Pi的MQTT Broker：
-	* MQTT Broker有很多選擇，這裡採用開放的[Mosquitto](http://mosquitto.org/)。
+	* MQTT Broker有很多選擇，這裡採用[Mosquitto](http://mosquitto.org/)。
 	* 讓用戶端發佈與訂閱訊息。
 2. 使用Java技術開發，採用[Paho](https://eclipse.org/paho/)類別庫，在Raspberry Pi運作的PiCommanderService應用程式。
 	* 訂閱並處理Android發佈的訊息。
