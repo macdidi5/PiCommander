@@ -64,11 +64,11 @@
 
 你可以參考下面的線路圖連接好測用的零件：
 
-<a href="https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander010.png"><img src="https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander010.png" width="600"/></a>
+<a href="https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander012.png"><img src="https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander012.png" width="600"/></a>
 
 連接繼電器模組以後也可以控制家用電器：
 
-<a href="https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander011.png"><img src="https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander011.png" width="600"/></a>
+<a href="https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander013.png"><img src="https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander013.png" width="600"/></a>
 
 ## PiCommander for Android
 
