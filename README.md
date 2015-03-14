@@ -87,6 +87,11 @@ PiCommander包含下列三個部份：
 7. 不需要的控制項可以在畫面長按後選擇刪除：
 
 	![](https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander009.png)	
+
+## 試試看
+
+安裝執行環境與測試請開啟[InstallAndPlay.md](https://github.com/macdidi5/PiCommander/blob/master/InstallAndPlay.md)。
+
 ## 下一階段
 
 公開原始程式碼與相關實作的說明。
