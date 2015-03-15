@@ -77,7 +77,7 @@
 		https://github.com/macdidi5/PiCommander/archive/master.zip
 
 2. 解壓縮下載的檔案，找到解壓縮目錄下的「apps/PiCommanderApp.zip」，解壓縮這個檔案以後，可以看到一個名稱為「mobile-debug.apk」的Android APK檔案。
-3. 將你的Android行動電話連接到工作電腦，安裝mobile-debug.apk。
+3. 將你的Android行動電話連接到工作電腦，傳輸與安裝mobile-debug.apk。
 4. 確認Raspberry Pi已經安裝並啟動PiCommanderService。
 5. 確認行動電話連線到Raspberry Pi同一個區域網路。
-6. 啟動安裝在行動電話的PiCommander開始測試。
+6. 啟動安裝在行動電話的PiCommander，可以[參考這裡的說明](https://github.com/macdidi5/PiCommander#%E5%8A%9F%E8%83%BD)開始測試。
