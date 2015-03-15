@@ -76,7 +76,7 @@ PiCommander包含下列三個部份：
 
 	![](https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander005.png)
 
-5. 新增後的控制項可以控制指定GPIO針腳，切換高電壓與低電壓：
+5. 新增後的控制項可以控制指定的GPIO針腳，切換為高電壓或低電壓：
 
 	![](https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander006.png)	![](https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander007.png)
 
@@ -90,7 +90,7 @@ PiCommander包含下列三個部份：
 
 ## 試試看
 
-安裝執行環境與測試請開啟[InstallAndPlay.md](https://github.com/macdidi5/PiCommander/blob/master/InstallAndPlay.md)。
+安裝執行環境與功能測試請參考[InstallAndPlay.md](https://github.com/macdidi5/PiCommander/blob/master/InstallAndPlay.md)。
 
 ## 下一階段
 
