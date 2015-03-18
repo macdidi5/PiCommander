@@ -195,13 +195,18 @@ public class ItemActivity extends Activity {
 
     private String[] removeArray(String[] source, List<CommanderItem> items) {
         List<String> list = new ArrayList<>(Arrays.asList(source));
+        boolean isExpander;
 
         for (CommanderItem item : items) {
+            isExpander = (item instanceof ExpanderCommanderItem);
+
             if (addMenuItemId == R.id.add_pi_gpio_menu) {
-                list.remove(item.getGpioName());
+                if (!isExpander) {
+                    list.remove(item.getGpioName());
+                }
             }
             else {
-                if (item instanceof ExpanderCommanderItem) {
+                if (isExpander) {
                     ExpanderCommanderItem eci = (ExpanderCommanderItem)item;
 
                     String address = address_spinner.getSelectedItem().toString();

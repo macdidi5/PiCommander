@@ -3,9 +3,11 @@ package net.macdidi5.picommander;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class TurtleUtil {
 
@@ -101,6 +103,16 @@ public class TurtleUtil {
         SharedPreferences.Editor editor = getSharedPreferences(context).edit();
         editor.remove(KEY_BUTTON + String.format("%02d", position));
         editor.commit();
+    }
+
+    public static void logPref(Context context) {
+        SharedPreferences sp = getSharedPreferences(context);
+
+        Set<String> keys = sp.getAll().keySet();
+
+        for (String key : keys) {
+            Log.d("logPref=====", key + ": " + sp.getString(key, ""));
+        }
     }
 
     /**

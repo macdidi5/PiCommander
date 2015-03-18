@@ -108,6 +108,10 @@ public class MainActivity extends ActionBarActivity {
 
                 TurtleUtil.saveCommanders(this, commandAdapter.getItems());
                 commandAdapter.notifyDataSetChanged();
+
+                if (mqttClient != null && mqttClient.isConnected()) {
+                    commandAdapter.refresh();
+                }
             }
             // After connect to MQTT broker
             else if (requestCode == REQUEST_CONNECT) {
@@ -277,6 +281,12 @@ public class MainActivity extends ActionBarActivity {
             for (CommanderItem item : commanderItems) {
                 String content = item.getGpioName() + "," +
                         getString(R.string.commander_status);
+
+                if (item instanceof ExpanderCommanderItem) {
+                    ExpanderCommanderItem eci = (ExpanderCommanderItem) item;
+                    content += ("," + eci.getAddress() + "," + eci.getType());
+                }
+
                 MqttMessage message = new MqttMessage(content.getBytes());
                 message.setQos(QOS);
 
