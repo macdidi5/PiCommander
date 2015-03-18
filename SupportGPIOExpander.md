@@ -43,3 +43,6 @@ MCP23008與MCP23017用來設定位址的腳位：
 下面的表格表示0x20到0x27的I2C設備位址與它們的對應設定。以0x21的I2C設備位址來說，A2與A1針腳為「0」，表示它們要連接到接地。A0針腳為「1」表示它要連接到3.3V：
 
 <a href="https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander019.png"><img src="https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander019.png"/></a>
+
+===============
+線路圖與說明來自[http://www.kingsinfo.com.tw/module.php?i=item&tid=8213](http://www.kingsinfo.com.tw/module.php?i=item&tid=8213)
