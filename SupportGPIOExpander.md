@@ -6,11 +6,11 @@
 
 * MCP23008，擴充8個GPIO
 
-		<a href="https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander014.png"><img src="https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander014.png" width="480"/></a>
+<a href="https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander014.png"><img src="https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander014.png" width="480"/></a>
 
 * MCP23017，擴充16個GPIO
 
-		<a href="https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander015.png"><img src="https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander015.png" width="480"/></a>
+<a href="https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander015.png"><img src="https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander015.png" width="480"/></a>
 
 IIC通訊協定，可以串接，位址可以設定為0x20到0x27。如果串接MCP23017八個，可以擴充128個GPIO。
 
