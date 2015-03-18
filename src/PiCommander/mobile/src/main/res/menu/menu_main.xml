@@ -1,0 +1,35 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <item
+        android:id="@+id/connect_menu"
+        android:title="@string/connect"
+        app:showAsAction="always"
+        android:icon="@android:drawable/ic_menu_share"
+        android:onClick="clickConnect"/>
+
+    <item
+        android:id="@+id/add_menu"
+        android:title="@string/add"
+        app:showAsAction="always"
+        android:icon="@android:drawable/ic_menu_add">
+        <menu>
+            <item
+                android:id="@+id/add_pi_gpio_menu"
+                android:title="@string/rpi_gpio"
+                android:onClick="clickAdd"/>
+            <item
+                android:id="@+id/add_mcp23008_menu"
+                android:title="@string/mcp23008_desc"
+                android:onClick="clickAdd"/>
+
+            <item
+                android:id="@+id/add_mcp23017_menu"
+                android:title="@string/mcp23017_desc"
+                android:onClick="clickAdd"/>
+        </menu>
+    </item>
+
+</menu>

@@ -1,0 +1,98 @@
+<resources>
+
+    <string name="app_name">Pi Commander</string>
+
+    <string name="add">Add</string>
+    <string name="connect">Connect</string>
+
+    <string name="rpi_gpio">Raspberry Pi GPIO</string>
+
+    <string name="mcp23008_name">MCP23008</string>
+    <string name="mcp23017_name">MCP23017</string>
+    <string name="mcp23008_desc">MCP23008 GPIO Expander</string>
+    <string name="mcp23017_desc">MCP23017 GPIO Expander</string>
+
+    <string name="default_broker_ip">192.168.1.101</string>
+    <string name="default_broker_port">1883</string>
+    <string name="default_description">Description</string>
+    <string name="message_connected">Connected</string>
+    <string name="message_connect_failed">Connection Failed</string>
+
+    <string name="commander_on">ON</string>
+    <string name="commander_off">OFF</string>
+    <string name="commander_status">STATUS</string>
+    <string name="commander_listen">LISTEN</string>
+
+    <string name="connection_require">Connection require</string>
+
+    <string-array name="gpio_pin_names">
+        <item>GPIO 0</item>
+        <item>GPIO 1</item>
+        <item>GPIO 2</item>
+        <item>GPIO 3</item>
+        <item>GPIO 4</item>
+        <item>GPIO 5</item>
+        <item>GPIO 6</item>
+        <item>GPIO 7</item>
+        <item>GPIO 8</item>
+        <item>GPIO 9</item>
+        <item>GPIO 10</item>
+        <item>GPIO 11</item>
+        <item>GPIO 12</item>
+        <item>GPIO 13</item>
+        <item>GPIO 14</item>
+        <item>GPIO 15</item>
+        <item>GPIO 16</item>
+        <item>GPIO 21</item>
+        <item>GPIO 22</item>
+        <item>GPIO 23</item>
+        <item>GPIO 24</item>
+        <item>GPIO 25</item>
+        <item>GPIO 26</item>
+        <item>GPIO 27</item>
+        <item>GPIO 28</item>
+        <item>GPIO 29</item>
+    </string-array>
+
+    <string-array name="mcp_addresses">
+        <item>0x20</item>
+        <item>0x21</item>
+        <item>0x22</item>
+        <item>0x23</item>
+        <item>0x24</item>
+        <item>0x25</item>
+        <item>0x26</item>
+        <item>0x27</item>
+    </string-array>
+
+    <string-array name="mcp23008_gpio_pin_names">
+        <item>GPIO 0</item>
+        <item>GPIO 1</item>
+        <item>GPIO 2</item>
+        <item>GPIO 3</item>
+        <item>GPIO 4</item>
+        <item>GPIO 5</item>
+        <item>GPIO 6</item>
+        <item>GPIO 7</item>
+    </string-array>
+
+    <string-array name="mcp23017_gpio_pin_names">
+        <item>GPIO A0</item>
+        <item>GPIO A1</item>
+        <item>GPIO A2</item>
+        <item>GPIO A3</item>
+        <item>GPIO A4</item>
+        <item>GPIO A5</item>
+        <item>GPIO A6</item>
+        <item>GPIO A7</item>
+        <item>GPIO B0</item>
+        <item>GPIO B1</item>
+        <item>GPIO B2</item>
+        <item>GPIO B3</item>
+        <item>GPIO B4</item>
+        <item>GPIO B5</item>
+        <item>GPIO B6</item>
+        <item>GPIO B7</item>
+    </string-array>
+
+</resources>
