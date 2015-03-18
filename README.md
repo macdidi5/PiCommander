@@ -3,10 +3,10 @@
 
 ## 歷程
 
-* 開放原始程式碼，請參考[這裡](https://github.com/macdidi5/PiCommander/blob/master/ProjectNotes.md)的說明。
-* 支援GPIO擴充晶片：MCP23008與MCP23017，請參考[這裡](https://github.com/macdidi5/PiCommander/blob/master/SupportGPIOExpander.md)。
-* 覺得少了什麼？有錯誤？在[這裡](https://github.com/macdidi5/PiCommander/issues)留下你的想法！
-* 開放PiCommander v0.1應用程式。[InstallAndPlay.md](https://github.com/macdidi5/PiCommander/blob/master/InstallAndPlay.md)
+* 2015/03/18。開放原始程式碼，請參考[這裡](https://github.com/macdidi5/PiCommander/blob/master/ProjectNotes.md)的說明。
+* 2015/03/18。支援GPIO擴充晶片：MCP23008與MCP23017，請參考[這裡](https://github.com/macdidi5/PiCommander/blob/master/SupportGPIOExpander.md)。
+* 2015/03/16。覺得少了什麼？有錯誤？在[這裡](https://github.com/macdidi5/PiCommander/issues)留下你的想法！
+* 2015/03/16。開放PiCommander v0.1應用程式。[InstallAndPlay.md](https://github.com/macdidi5/PiCommander/blob/master/InstallAndPlay.md)
 
 ## 示範
 

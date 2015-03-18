@@ -2,6 +2,14 @@
 
 支援GPIO擴充晶片，在Raspberry Pi連接MCP23008或MCP23017以後，讓Android App可以控制更多的GPIO。
 
+示範影片：
+
+https://youtu.be/AQggjulIgzo
+
+示範圖片：
+
+<a href="https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander020.png"><img src="https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander020.png" width="480"/></a>
+
 ## 支援的GPIO擴充晶片
 
 * MCP23008，擴充8個GPIO
