@@ -81,3 +81,6 @@
 4. 確認Raspberry Pi已經安裝並啟動PiCommanderService。
 5. 確認行動電話連線到Raspberry Pi同一個區域網路。
 6. 啟動安裝在行動電話的PiCommander，可以[參考這裡的說明](https://github.com/macdidi5/PiCommander#%E5%8A%9F%E8%83%BD)開始測試。
+
+===============
+線路圖與說明來自[http://www.kingsinfo.com.tw/module.php?i=item&tid=8213](http://www.kingsinfo.com.tw/module.php?i=item&tid=8213)
