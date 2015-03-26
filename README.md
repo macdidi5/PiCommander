@@ -3,7 +3,7 @@
 
 示範影片：
 
-* 2015/03/26：https://youtu.be/odsY85ddPF4。
+* 2015/03/26：https://youtu.be/odsY85ddPF4
 * 2015/03/18：https://youtu.be/AQggjulIgzo
 * 2015/03/13：https://youtu.be/Reqdk4hRZKo
 
