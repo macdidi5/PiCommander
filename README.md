@@ -1,7 +1,11 @@
 # PiCommander
 使用Android App控制與監控Raspberry Pi連接的硬體設備，例如LED與蜂鳴器。連接繼電器模組，也可以控制家用電器。
 
-最新示範影片：https://youtu.be/odsY85ddPF4。2015/03/26。
+示範影片：
+
+* 2015/03/26：https://youtu.be/odsY85ddPF4。
+* 2015/03/18：https://youtu.be/AQggjulIgzo
+* 2015/03/13：https://youtu.be/Reqdk4hRZKo
 
 ## 歷程
 
@@ -10,17 +14,6 @@
 * 2015/03/18。支援GPIO擴充晶片：MCP23008與MCP23017，請參考[這裡](https://github.com/macdidi5/PiCommander/blob/master/SupportGPIOExpander.md)。
 * 2015/03/16。覺得少了什麼？有錯誤？在[這裡](https://github.com/macdidi5/PiCommander/issues)留下你的想法！
 * 2015/03/16。開放PiCommander v0.1應用程式。[InstallAndPlay.md](https://github.com/macdidi5/PiCommander/blob/master/InstallAndPlay.md)
-
-## 示範
-
-實際操作影片：
-
-https://youtu.be/Reqdk4hRZKo
-
-Raspberry Pi連接的零件，有三個LED、蜂鳴器，還有透過繼電器模組控制桌燈：
-
-![](https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander010.jpg)
-![](https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander011.jpg)
 
 ## 需求
 硬體：
