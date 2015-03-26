@@ -1,6 +1,8 @@
 # PiCommander
 使用Android App控制與監控Raspberry Pi連接的硬體設備，例如LED與蜂鳴器。連接繼電器模組，也可以控制家用電器。
 
+最新示範影片：https://youtu.be/odsY85ddPF4。2015/03/26。
+
 ## 歷程
 
 * 2015/03/26。完成監聽功能，可以在Android App接收GPIO輸入狀態。
