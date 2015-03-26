@@ -6,38 +6,6 @@
     android:padding="@dimen/dialog_padding"
     android:background="@drawable/background_dialog">
 
-    <TextView
-        android:id="@+id/type_textview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/dialog_padding"
-        android:layout_margin="@dimen/dialog_margin"
-        android:textSize="@dimen/spinner_text_size"
-        android:background="@drawable/background_disable"/>
-
-    <Spinner
-        android:id="@+id/address_spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/dialog_padding"
-        android:layout_margin="@dimen/dialog_margin"/>
-
-    <Spinner
-        android:id="@+id/gpio_spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/dialog_padding"
-        android:layout_margin="@dimen/dialog_margin"/>
-
-    <EditText
-        android:id="@+id/desc_edittext"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/default_description"
-        android:padding="@dimen/dialog_padding"
-        android:layout_margin="@dimen/dialog_margin"/>
-
-    <!--
     <EditText
         android:id="@+id/high_desc_edittext"
         android:layout_width="match_parent"
@@ -70,15 +38,14 @@
         android:text="@string/notify_when_low"
         android:padding="@dimen/dialog_padding"
         android:textColor="@android:color/black"/>
-    -->
+
     <ImageButton
-        android:id="@+id/add_or_delete_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/dialog_padding"
         android:layout_margin="@dimen/dialog_margin"
         android:src="@android:drawable/ic_menu_add"
-        android:onClick="clickAddOrDelete"
+        android:onClick="clickAdd"
         android:contentDescription="@android:string/ok"/>
 
 </LinearLayout>

@@ -1,0 +1,14 @@
+<GridView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_gridview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/commander_padding"
+    android:columnWidth="@dimen/gridview_column_width"
+    android:numColumns="2"
+    android:verticalSpacing="@dimen/gridview_verticalSpacing"
+    android:horizontalSpacing="@dimen/gridview_horizontalSpacing"
+    android:stretchMode="columnWidth"
+    android:gravity="center"/>
+
+

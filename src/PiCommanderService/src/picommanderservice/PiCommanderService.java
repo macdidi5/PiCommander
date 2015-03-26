@@ -3,6 +3,11 @@ package picommanderservice;
 import com.pi4j.io.gpio.GpioController;
 import com.pi4j.io.gpio.GpioFactory;
 import com.pi4j.io.gpio.GpioPinDigitalMultipurpose;
+import com.pi4j.io.gpio.PinMode;
+import com.pi4j.io.gpio.event.GpioPinDigitalStateChangeEvent;
+import com.pi4j.io.gpio.event.GpioPinListener;
+import com.pi4j.io.gpio.event.GpioPinListenerDigital;
+import java.util.Collection;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
@@ -70,7 +75,7 @@ public class PiCommanderService {
                     return;
                 }
 
-                GpioPinDigitalMultipurpose pin = null;
+                final GpioPinDigitalMultipurpose pin;
                 
                 if (length == 2) {
                     pin = gpioPi.getPin(messageArray[0]);
@@ -81,12 +86,11 @@ public class PiCommanderService {
                             McpGpioExpander.fromString(messageArray[3]), 
                             messageArray[0]);
                 }
-            
-                if (pin == null) {
-                    System.out.println(USAGE + "2");
+                else {
+                    System.out.println(USAGE);
                     return;
                 }
-            
+                        
                 switch (messageArray[1]) {
                     case "ON":
                         pin.high();
@@ -95,14 +99,42 @@ public class PiCommanderService {
                         pin.low();
                         break;
                     case "LISTEN":
-                        // Not yet...
+                        Collection<GpioPinListener> listeners = pin.getListeners();
+        
+                        if (listeners.size() > 0) {
+                            break;
+                        }
+
+                        pin.setMode(PinMode.DIGITAL_INPUT);
+                        
+                        pin.addListener(new GpioPinListenerDigital() {
+                            @Override
+                            public void handleGpioPinDigitalStateChangeEvent(
+                                    GpioPinDigitalStateChangeEvent gpdsce) {
+                                processPublish(pin, messageArray);
+                            }
+                        });
+
                         break;
                 }
+                
+                processPublish(pin, messageArray);
+//                String status = pin.isHigh() ? "ON" : "OFF";
+//                String publishMessage = pin.getName() + "," + status;
+//                
+//                if (length == 4) {
+//                    publishMessage += ("," + messageArray[2] + "," + messageArray[3]);
+//                }
+//                
+//                service.publish(TOPIC_STATUS, publishMessage);
+            }
             
+            private void processPublish(GpioPinDigitalMultipurpose pin,
+                    String[] messageArray) {
                 String status = pin.isHigh() ? "ON" : "OFF";
                 String publishMessage = pin.getName() + "," + status;
                 
-                if (length == 4) {
+                if (messageArray.length == 4) {
                     publishMessage += ("," + messageArray[2] + "," + messageArray[3]);
                 }
                 

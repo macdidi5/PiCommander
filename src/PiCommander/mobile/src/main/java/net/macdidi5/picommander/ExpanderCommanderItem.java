@@ -7,6 +7,36 @@ public class ExpanderCommanderItem extends CommanderItem {
 
     public ExpanderCommanderItem(String gpioName, boolean status,
                                  String desc, String highDesc, String lowDesc,
+                                 String commandType, boolean highNotify,
+                                 boolean lowNotify, int address,
+                                 McpGpioExpander type) {
+        super(gpioName, status, desc, highDesc, lowDesc, commandType,
+                highNotify, lowNotify);
+        this.setAddress(address);
+        this.setType(type);
+    }
+
+    public ExpanderCommanderItem(String gpioName, String desc,
+                                 String commandType,
+                                 int address, McpGpioExpander type) {
+        super(gpioName, desc, commandType);
+        this.setAddress(address);
+        this.setType(type);
+    }
+
+    public ExpanderCommanderItem(String gpioName,
+                                 String desc, String highDesc, String lowDesc,
+                                 String commandType, boolean highNotify,
+                                 boolean lowNotify, int address,
+                                 McpGpioExpander type) {
+        super(gpioName, false, desc, highDesc, lowDesc, commandType,
+                highNotify, lowNotify);
+        this.setAddress(address);
+        this.setType(type);
+    }
+
+    public ExpanderCommanderItem(String gpioName, boolean status,
+                                 String desc, String highDesc, String lowDesc,
                                  int address, McpGpioExpander type) {
         super(gpioName, status, desc, highDesc, lowDesc);
         this.setAddress(address);

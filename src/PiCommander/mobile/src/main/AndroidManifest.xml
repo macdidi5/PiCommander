@@ -14,29 +14,38 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ItemActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Dialog">
+            android:theme="@android:style/Theme.Dialog" >
             <intent-filter>
-                <action android:name="net.macdidi5.picommander.ADD_ITEM"/>
-                <action android:name="net.macdidi5.picommander.DELETE_ITEM"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="net.macdidi5.picommander.ADD_ITEM" />
+                <action android:name="net.macdidi5.picommander.DELETE_ITEM" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".ItemListenActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Dialog" />
         <activity
             android:name=".ConnectActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Dialog"/>
+            android:theme="@android:style/Theme.Dialog" />
+
+        <service
+            android:name=".ListenService"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
     </application>
 
 </manifest>

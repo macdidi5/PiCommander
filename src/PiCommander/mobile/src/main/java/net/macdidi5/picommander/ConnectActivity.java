@@ -2,11 +2,8 @@ package net.macdidi5.picommander;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -42,11 +39,7 @@ public class ConnectActivity extends Activity {
     }
 
     private void checkNetwork() {
-        ConnectivityManager cm = (ConnectivityManager)
-                getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo info = cm.getActiveNetworkInfo();
-
-        if (info == null || !info.isConnected()) {
+        if (!TurtleUtil.checkNetwork(this)) {
             AlertDialog.Builder ab = new AlertDialog.Builder(this);
             ab.setMessage(R.string.connection_require);
             ab.setTitle(android.R.string.dialog_alert_title);

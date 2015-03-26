@@ -9,16 +9,41 @@ public class CommanderItem implements Serializable {
     private String desc;
     private String highDesc;
     private String lowDesc;
+    private String commandType;
+    private boolean highNotify;
+    private boolean lowNotify;
 
     private static final String NA = "NA";
 
     public CommanderItem(String gpioName, boolean status, String desc,
-                         String highDesc, String lowDesc) {
+                         String highDesc, String lowDesc,
+                         String commandType, boolean highNotify, boolean lowNotify) {
         this.gpioName = gpioName;
         this.status = status;
         this.desc = desc;
         this.setHighDesc(highDesc);
         this.setLowDesc(lowDesc);
+        this.setCommandType(commandType);
+        this.setHighNotify(highNotify);
+        this.setLowNotify(lowNotify);
+    }
+
+    public CommanderItem(String gpioName, String desc,
+                         String commandType) {
+        this(gpioName, false, desc, NA, NA, commandType, false, false);
+    }
+
+    public CommanderItem(String gpioName, String desc,
+                         String highDesc, String lowDesc,
+                         String commandType, boolean highNotify,
+                         boolean lowNotify) {
+        this(gpioName, false, desc, highDesc, lowDesc, commandType,
+                highNotify, lowNotify);
+    }
+
+    public CommanderItem(String gpioName, boolean status, String desc,
+                         String highDesc, String lowDesc) {
+        this(gpioName, status, desc, highDesc, lowDesc, NA, false, false);
     }
 
     public CommanderItem(String gpioName, boolean status, String desc) {
@@ -77,5 +102,30 @@ public class CommanderItem implements Serializable {
 
     public void setLowDesc(String lowDesc) {
         this.lowDesc = lowDesc;
+    }
+
+    public String getCommandType() {
+        return commandType;
+    }
+
+    public void setCommandType(String commandType) {
+        this.commandType = commandType;
+    }
+
+
+    public boolean isHighNotify() {
+        return highNotify;
+    }
+
+    public void setHighNotify(boolean highNotify) {
+        this.highNotify = highNotify;
+    }
+
+    public boolean isLowNotify() {
+        return lowNotify;
+    }
+
+    public void setLowNotify(boolean lowNotify) {
+        this.lowNotify = lowNotify;
     }
 }

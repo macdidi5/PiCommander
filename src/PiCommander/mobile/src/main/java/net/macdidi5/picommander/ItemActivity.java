@@ -26,6 +26,7 @@ public class ItemActivity extends Activity {
     private boolean isAdd = false;
     private int itemPosition;
     private int addMenuItemId;
+    private int commandType;
     private String mcpType;
 
     @Override
@@ -34,12 +35,13 @@ public class ItemActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_item);
 
-        processViews();
-        processControllers();
-
         Intent intent = getIntent();
         String action = intent.getAction();
         isAdd = action.equals(MainActivity.ADD_ITEM_ACTION);
+        commandType = intent.getIntExtra("commandType", -1);
+
+        processViews();
+        processControllers();
 
         addMenuItemId = intent.getIntExtra("menuItemId", -1);
         mcpType = getString((addMenuItemId == R.id.add_mcp23008_menu) ?
@@ -77,10 +79,6 @@ public class ItemActivity extends Activity {
             gpio_spinner.setAdapter(adapter);
         }
 
-        add_or_delete_item.setImageResource(
-                isAdd ? android.R.drawable.ic_menu_add :
-                        android.R.drawable.ic_menu_delete);
-
         // Delete command block
         if (!isAdd) {
             String desc = intent.getStringExtra("desc");
@@ -100,8 +98,17 @@ public class ItemActivity extends Activity {
 
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == Activity.RESULT_OK) {
+            setResult(Activity.RESULT_OK, data);
+            finish();
+        }
+    }
+
     public void clickAddOrDelete(View view) {
         Intent intent = getIntent();
+        intent.putExtra("commandType", commandType);
 
         // Add command block
         if (isAdd) {
@@ -116,7 +123,7 @@ public class ItemActivity extends Activity {
                 String address = address_spinner.getSelectedItem().toString();
                 int addressValue = Integer.parseInt(address.substring(2), 16);
 
-                intent.putExtra("address", addressValue);
+                intent.putExtra("addressValue", addressValue);
                 intent.putExtra("mcpType", mcpType);
 
                 if (desc.equals(gpioName)) {
@@ -127,15 +134,28 @@ public class ItemActivity extends Activity {
             intent.putExtra("gpioName", gpioName);
             intent.putExtra("desc", desc);
 
-            setResult(Activity.RESULT_OK, intent);
+            // Controller
+            if (commandType == 0) {
+                setResult(Activity.RESULT_OK, intent);
+                finish();
+            }
+            // Listener
+            else {
+                Bundle bundle = intent.getExtras();
+                Intent intentListen =
+                        new Intent(this, ItemListenActivity.class);
+                intentListen.putExtras(bundle);
+                startActivityForResult(intentListen, 0);
+            }
         }
         // Delete command block
         else {
             intent.putExtra("itemPosition", itemPosition);
+            intent.putExtra("commandType", commandType);
             setResult(Activity.RESULT_OK, intent);
+            finish();
         }
 
-        finish();
     }
 
     private void processViews() {
@@ -144,6 +164,18 @@ public class ItemActivity extends Activity {
         type_textview = (TextView)findViewById(R.id.type_textview);
         desc_edittext = (EditText)findViewById(R.id.desc_edittext);
         add_or_delete_item = (ImageButton)findViewById(R.id.add_or_delete_item);
+
+
+        if (isAdd) {
+            add_or_delete_item.setImageResource(
+                    commandType == 0 ?
+                    android.R.drawable.ic_menu_add :
+                    android.R.drawable.ic_menu_info_details);
+        }
+        else {
+            add_or_delete_item.setImageResource(
+                    android.R.drawable.ic_menu_delete);
+        }
     }
 
     private void processControllers() {
@@ -162,7 +194,8 @@ public class ItemActivity extends Activity {
     }
 
     private void refreshGpioSpinner() {
-        List<CommanderItem> items = TurtleUtil.getCommanders(this);
+        List<CommanderItem> controllerItems = TurtleUtil.getControllers(this);
+        List<CommanderItem> listenerItems = TurtleUtil.getListeners(this);
 
         String[] gpioNames;
 
@@ -183,8 +216,12 @@ public class ItemActivity extends Activity {
 
         String[] gpioLeft = gpioNames;
 
-        if (items.size() > 0) {
-            gpioLeft = removeArray(gpioNames, items);
+        if (controllerItems.size() > 0) {
+            gpioLeft = removeArray(gpioNames, controllerItems);
+        }
+
+        if (listenerItems.size() > 0) {
+            gpioLeft = removeArray(gpioLeft, listenerItems);
         }
 
         ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(

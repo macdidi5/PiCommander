@@ -14,7 +14,15 @@
 
     <string name="default_broker_ip">192.168.1.101</string>
     <string name="default_broker_port">1883</string>
+
     <string name="default_description">Description</string>
+
+    <string name="default_high_descrpiton">High Description</string>
+    <string name="default_low_description">Low Description</string>
+
+    <string name="notify_when_high">Notify when high</string>
+    <string name="notify_when_low">Notify when low</string>
+
     <string name="message_connected">Connected</string>
     <string name="message_connect_failed">Connection Failed</string>
 
