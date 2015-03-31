@@ -3,12 +3,14 @@
 
 示範影片：
 
+* 2015/03/31：https://youtu.be/mFwDhTV0e0Q 。Android App操作示範，項目排列功能。
 * 2015/03/26：https://youtu.be/odsY85ddPF4
 * 2015/03/18：https://youtu.be/AQggjulIgzo
 * 2015/03/13：https://youtu.be/Reqdk4hRZKo
 
 ## 歷程
 
+* 2015/03/31。為Android App加入項目排列功能。
 * 2015/03/26。完成監聽功能，可以在Android App接收GPIO輸入狀態。
 * 2015/03/18。開放原始程式碼，請參考[這裡](https://github.com/macdidi5/PiCommander/blob/master/ProjectNotes.md)的說明。
 * 2015/03/18。支援GPIO擴充晶片：MCP23008與MCP23017，請參考[這裡](https://github.com/macdidi5/PiCommander/blob/master/SupportGPIOExpander.md)。
