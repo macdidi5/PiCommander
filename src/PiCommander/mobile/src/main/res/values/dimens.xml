@@ -16,4 +16,6 @@
 
     <dimen name="dialog_padding">2sp</dimen>
     <dimen name="dialog_margin">2sp</dimen>
+
+    <dimen name="dgv_overlap_if_switch_straight_line">16dp</dimen>
 </resources>

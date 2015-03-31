@@ -1,4 +1,6 @@
-<GridView
+    <!-- <GridView -->
+
+<net.macdidi5.dynamicgrid.DynamicGridView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/item_gridview"
     android:layout_width="match_parent"
@@ -10,5 +12,3 @@
     android:horizontalSpacing="@dimen/gridview_horizontalSpacing"
     android:stretchMode="columnWidth"
     android:gravity="center"/>
-
-

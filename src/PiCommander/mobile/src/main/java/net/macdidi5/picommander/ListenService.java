@@ -41,10 +41,8 @@ public class ListenService extends Service {
     }
 
     public void connect() {
-        Log.d("=========", "connect1");
         try {
             if (mqttClient == null || !mqttClient.isConnected()) {
-                Log.d("=========", "connect2");
                 String broker = "tcp://" + TurtleUtil.getBrokerIP(this) +
                         ":" + TurtleUtil.getBrokerPort(this);
                 String clientId = "PiCommanderAndroidService" +
@@ -60,7 +58,6 @@ public class ListenService extends Service {
 
                 mqttClient.connect(mqttConnectOptions);
                 mqttClient.subscribe(MainActivity.TOPIC_STATUS);
-                Log.d("=========", "connect3");
             }
         }
         catch (MqttException me) {

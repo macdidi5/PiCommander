@@ -4,6 +4,13 @@
     tools:context=".MainActivity">
 
     <item
+        android:id="@+id/edit_mode_menu"
+        android:title="@string/connect"
+        app:showAsAction="always"
+        android:icon="@drawable/menu_grid_icon"
+        android:onClick="clickEditMode"/>
+
+    <item
         android:id="@+id/connect_menu"
         android:title="@string/connect"
         app:showAsAction="always"

@@ -101,9 +101,6 @@ public class TurtleUtil {
 
             editor.putString(KEY_COMMANDER + item.getCommandType() +
                     String.format("%02d", i), data);
-
-            Log.d("======", KEY_COMMANDER + item.getCommandType() +
-                    String.format("%02d", i) + "---" + data);
         }
 
         editor.commit();

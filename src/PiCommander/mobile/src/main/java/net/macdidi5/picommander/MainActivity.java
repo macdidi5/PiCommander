@@ -10,7 +10,6 @@ import android.os.IBinder;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,14 +18,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import net.macdidi5.dynamicgrid.BaseDynamicGridAdapter;
+import net.macdidi5.dynamicgrid.DynamicGridView;
 
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
@@ -43,7 +42,7 @@ public class MainActivity extends ActionBarActivity {
     public static final String TOPIC = "PiCommander";
     public static final String TOPIC_STATUS = "PiCommanderStatus";
     public static final int QOS = 2;
-    public static final int TIMEOUT = 5;
+    public static final int TIMEOUT = 3;
 
     private static String clientId = "PiCommanderAndroid";
     private static MqttClient mqttClient;
@@ -60,7 +59,8 @@ public class MainActivity extends ActionBarActivity {
 
     private RelativeLayout main;
     private CommandPagerAdapter commandPagerAdapter;
-    private ViewPager mypager;
+    private PiViewPager mypager;
+    private static DynamicGridView[] dynamicGridViews = new DynamicGridView[2];
     private ImageView connect_imageview;
 
     private static CommandAdapter controllerCommandAdapter, listenerCommandAdapter;
@@ -75,26 +75,39 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Read Commander items
         controllerCommanderItems = TurtleUtil.getControllers(this);
         listenerCommanderItems = TurtleUtil.getListeners(this);
 
+        // Create Commander Adapter
         controllerCommandAdapter = new CommandAdapter(this, controllerCommanderItems);
         listenerCommandAdapter = new CommandAdapter(this, listenerCommanderItems);
 
+        // Create controller and listener page
         fragments = new Fragment[] {
                 CommandFragment.newInstance(0),
                 CommandFragment.newInstance(1)
         };
 
+        // Create page adapter
         commandPagerAdapter = new CommandPagerAdapter(
                 getSupportFragmentManager(), fragments);
 
-        mypager = (ViewPager) findViewById(R.id.mypager);
+        mypager = (PiViewPager) findViewById(R.id.mypager);
+
         mypager.setAdapter(commandPagerAdapter);
 
         processViews();
 
-        startService(new Intent(this, ListenService.class));
+        // Start listener service
+        //startService(new Intent(this, ListenService.class));
+
+        new Thread() {
+            @Override
+            public void run() {
+                startService(new Intent(MainActivity.this, ListenService.class));
+            }
+        }.start();
     }
 
     @Override
@@ -104,6 +117,7 @@ public class MainActivity extends ActionBarActivity {
             if (requestCode == REQUEST_ITEM) {
                 processItem(data);
             }
+
             // After connect to MQTT broker
             else if (requestCode == REQUEST_CONNECT) {
                 String brokerIp = data.getStringExtra("brokerIp");
@@ -118,6 +132,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void processServiceConnect() {
+        // Service connection for bind ListenService
         ServiceConnection serviceConnection = new ServiceConnection() {
 
             @Override
@@ -170,11 +185,13 @@ public class MainActivity extends ActionBarActivity {
                         McpGpioExpander.fromString(mcpType));
             }
 
+            // GPIO Controller
             if (commandType == 0) {
                 controllerCommandAdapter.add(item);
                 TurtleUtil.saveCommanders(this,
-                        controllerCommandAdapter.getItems());
+                        controllerCommandAdapter.getCommanderItems());
             }
+            // GPIO Listener
             else {
                 item.setHighDesc(data.getStringExtra("highDesc"));
                 item.setLowDesc(data.getStringExtra("lowDesc"));
@@ -183,7 +200,7 @@ public class MainActivity extends ActionBarActivity {
 
                 listenerCommandAdapter.add(item);
                 TurtleUtil.saveCommanders(this,
-                        listenerCommandAdapter.getItems());
+                        listenerCommandAdapter.getCommanderItems());
             }
         }
         // Remove item
@@ -206,6 +223,7 @@ public class MainActivity extends ActionBarActivity {
             listenerCommandAdapter.notifyDataSetChanged();
         }
 
+        // Refresh Commander Item state
         if (itemPosition == -1 && mqttClient != null &&
                 mqttClient.isConnected()) {
             if (commandType == 0) {
@@ -272,9 +290,11 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
+    // Add commander item
     public void clickAdd(MenuItem item) {
         if (!processMenu) {
             processMenu = true;
+            // Controller or listener
             int commandType = mypager.getCurrentItem();
 
             Intent intent = new Intent(ADD_ITEM_ACTION);
@@ -285,6 +305,7 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
+    // Connect to MQTT broker
     public void clickConnect(MenuItem item) {
         if (!processMenu) {
             processMenu = true;
@@ -294,18 +315,46 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
-    private class CommandAdapter extends BaseAdapter {
+    // Start or stop DynamicGridView edit mode
+    public void clickEditMode(MenuItem item) {
+        final int index = mypager.getCurrentItem();
+
+        if (dynamicGridViews[index].isEditMode()) {
+            mypager.setPagingEnabled(true);
+
+            item.setIcon(R.drawable.menu_grid_icon);
+            dynamicGridViews[index].stopEditMode();
+
+            if (index == 0) {
+                TurtleUtil.saveCommanders(this,
+                        controllerCommandAdapter.getCommanderItems());
+            }
+            else {
+                TurtleUtil.saveCommanders(this,
+                        listenerCommandAdapter.getCommanderItems());
+            }
+        }
+        else {
+            item.setIcon(R.drawable.menu_grid_light_icon);
+            mypager.setPagingEnabled(false);
+            dynamicGridViews[index].startEditMode();
+        }
+    }
+
+    // Create dynamic grid adapter
+    private class CommandAdapter extends BaseDynamicGridAdapter {
 
         private Context context;
         private List<CommanderItem> commanderItems;
 
         public CommandAdapter(Context context, List<CommanderItem> commanderItems) {
+            super(context, commanderItems, 2);
             this.context = context;
             this.commanderItems = commanderItems;
         }
 
         public void add(CommanderItem commanderItem) {
-            commanderItems.add(commanderItem);
+            super.add(commanderItem);
         }
 
         public void toggle(int position) {
@@ -335,10 +384,10 @@ public class MainActivity extends ActionBarActivity {
         }
 
         public void remove(int position) {
-            commanderItems.remove(position);
+            super.remove(commanderItems.get(position));
         }
 
-        public List<CommanderItem> getItems() {
+        public List<CommanderItem> getCommanderItems() {
             return commanderItems;
         }
 
@@ -377,39 +426,47 @@ public class MainActivity extends ActionBarActivity {
         }
 
         @Override
-        public long getItemId(int position) {
-            return 0;
-        }
-
-        @Override
-        public View getView(final int position, View convertView, ViewGroup parent) {
-            LayoutInflater inflater = (LayoutInflater)
-                    context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            LinearLayout view;
+        public View getView(final int position, View convertView,
+                            ViewGroup parent) {
+            ViewHolder viewHolder;
 
             if (convertView == null) {
-                view = new LinearLayout(context);
-                inflater.inflate(R.layout.commander_item, view, true);
+                convertView = LayoutInflater.from(context).inflate(
+                        R.layout.commander_item, null);
+                viewHolder = new ViewHolder(convertView);
+                convertView.setTag(viewHolder);
             }
             else {
-                view = (LinearLayout)convertView;
+                viewHolder = (ViewHolder) convertView.getTag();
             }
 
-            TextView item_desc = (TextView)view.findViewById(R.id.item_desc);
-            Switch item_switch = (Switch)view.findViewById(R.id.item_switch);
+            viewHolder.build(position);
 
-            CommanderItem item = commanderItems.get(position);
-            item_desc.setText(item.getDesc());
-            item_switch.setChecked(item.isStatus());
+            return convertView;
+        }
 
-            if (item.getCommandType().equals(TurtleUtil.LISTENER_COMMANDER)) {
-                String statusText = item_switch.isChecked() ?
-                        item.getHighDesc() : item.getLowDesc();
-                item_desc.setText(statusText + "\n" + item.getDesc());
-                item_switch.setClickable(false);
+        private class ViewHolder {
+
+            private TextView item_desc;
+            private Switch item_switch;
+
+            private ViewHolder(View view) {
+                item_desc = (TextView)view.findViewById(R.id.item_desc);
+                item_switch = (Switch)view.findViewById(R.id.item_switch);
             }
 
-            return view;
+            void build(int position) {
+                CommanderItem item = commanderItems.get(position);
+                item_desc.setText(item.getDesc());
+                item_switch.setChecked(item.isStatus());
+
+                if (item.getCommandType().equals(TurtleUtil.LISTENER_COMMANDER)) {
+                    String statusText = item_switch.isChecked() ?
+                            item.getHighDesc() : item.getLowDesc();
+                    item_desc.setText(statusText + "\n" + item.getDesc());
+                    item_switch.setClickable(false);
+                }
+            }
         }
     }
 
@@ -559,7 +616,6 @@ public class MainActivity extends ActionBarActivity {
         private static final String KEY_POSITION = "position";
 
         public static CommandFragment newInstance(int position) {
-
             CommandFragment result = new CommandFragment();
             Bundle args = new Bundle();
             args.putInt(KEY_POSITION, position);
@@ -571,24 +627,29 @@ public class MainActivity extends ActionBarActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_commander, container, false);
-            GridView item_gridview = (GridView)rootView.findViewById(R.id.item_gridview);
+            View rootView = inflater.inflate(
+                    R.layout.fragment_commander, container, false);
+            DynamicGridView item_gridview = (DynamicGridView)
+                    rootView.findViewById(R.id.item_gridview);
 
             int position = getArguments().getInt(KEY_POSITION);
             processControllers(item_gridview, position, getActivity());
 
             if (position == 0) {
                 item_gridview.setAdapter(controllerCommandAdapter);
+                dynamicGridViews[0] = item_gridview;
             }
             else if (position == 1) {
                 item_gridview.setAdapter(listenerCommandAdapter);
+                dynamicGridViews[1] = item_gridview;
             }
 
             return rootView;
         }
     }
 
-    private static void processControllers(GridView gridview, final int commandType,
+    private static void processControllers(final DynamicGridView gridview,
+                                           final int commandType,
                                            final Context context) {
         // Click, control command block
         if (commandType == 0) {
@@ -626,9 +687,11 @@ public class MainActivity extends ActionBarActivity {
                 intent.putExtra("itemPosition", position);
 
                 ((Activity)context).startActivityForResult(intent, REQUEST_ITEM);
+
                 return true;
             }
         });
+
     }
 
 }
