@@ -20,7 +20,7 @@
 
 5. 執行下列的指令安裝Mosquitto（MQTT Broker Server）：
 
-		apt-get install mosquitto
+		sudo apt-get install mosquitto
 
 5. 執行下列的指令準備修改Raspberry Pi設定檔：
 
