@@ -96,10 +96,3 @@ PiCommander包含下列三個部份：
 ## 試試看
 
 安裝執行環境與功能測試請參考[InstallAndPlay.md](https://github.com/macdidi5/PiCommander/blob/master/InstallAndPlay.md)。
-
-## 下一階段
-
-公開原始程式碼與相關實作的說明。
-
-
-
