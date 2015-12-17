@@ -8,37 +8,22 @@ PiCommander App 已經在Google Play開放測試，你可以省略建立Android�
 
 	[https://play.google.com/apps/testing/net.macdidi5.picommander](https://play.google.com/apps/testing/net.macdidi5.picommander)
 
-2. 輸入MQTT Broker（Raspberry PI）的IP位址後選擇連線：
+2. 選擇「成為測試人員」：
 
 	![](https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander025.png)
 
-3. 連線到MQTT Broker以後，選擇新增控制項：
+3. 選擇「前往 Google Play 下載應用程式」：
 
-	![](https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander004.png)
+	![](https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander026.png)
 
-4. 選擇已經連接好設備與零件的GPIO針腳編號（[Pi4J](http://pi4j.com/pins/model-2b-rev1.html)），輸入設備的說明後選擇新增：
+4. 選擇「安裝」，如果畫面出現錯誤訊息，請稍候片刻再選擇「重試」按鈕：
 
-	![](https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander005.png)
+	![](https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander027.png)
 
-5. 新增後的控制項可以控制指定的GPIO針腳，切換為高電壓或低電壓：
+5. 選擇「接受」開始下載與安裝：
 
-	![](https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander006.png)	![](https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander007.png)
+	![](https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander028.png)
 
-6. 在Raspberry Pi連接更多設備與零件以後，使用同樣的方式新增與設定控制項：
+6. 安裝完成後選擇「開啟」（確認 Raspberry Pi 已啟動 PiCommander 服務，行動電話與 Raspberry Pi 在同一個網路）：
 
-	![](https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander008.png)
-
-7. 不需要的控制項可以在畫面長按後選擇刪除：
-
-	![](https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander009.png)	
-
-## 試試看
-
-安裝執行環境與功能測試請參考[InstallAndPlay.md](https://github.com/macdidi5/PiCommander/blob/master/InstallAndPlay.md)。
-
-## 下一階段
-
-公開原始程式碼與相關實作的說明。
-
-
-
+	![](https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander029.png)
