@@ -16,7 +16,7 @@ PiCommander App 已經在Google Play開放測試，你可以省略建立Android�
 
 	![](https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander026.png)
 
-4. 選擇「安裝」，如果畫面出現錯誤訊息，請稍候片刻再選擇「重試」按鈕：
+4. 選擇「安裝」（如果畫面出現錯誤訊息，請稍候片刻再選擇「重試」按鈕）：
 
 	![](https://github.com/macdidi5/PiCommander/blob/master/images/PiCommander027.png)
 
