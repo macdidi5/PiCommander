@@ -10,12 +10,13 @@
 
 ## 歷程
 
-* 2015/03/31。為Android App加入項目排列功能。
-* 2015/03/26。完成監聽功能，可以在Android App接收GPIO輸入狀態。
-* 2015/03/18。開放原始程式碼，請參考[這裡](https://github.com/macdidi5/PiCommander/blob/master/ProjectNotes.md)的說明。
-* 2015/03/18。支援GPIO擴充晶片：MCP23008與MCP23017，請參考[這裡](https://github.com/macdidi5/PiCommander/blob/master/SupportGPIOExpander.md)。
-* 2015/03/16。覺得少了什麼？有錯誤？在[這裡](https://github.com/macdidi5/PiCommander/issues)留下你的想法！
-* 2015/03/16。開放PiCommander v0.1應用程式。[InstallAndPlay.md](https://github.com/macdidi5/PiCommander/blob/master/InstallAndPlay.md)
+* 2015/12/17：PiCommander App 開放測試，請參考[https://github.com/macdidi5/PiCommander/blob/master/GooglePlay.md](https://github.com/macdidi5/PiCommander/blob/master/GooglePlay.md)。
+* 2015/03/31：為Android App加入項目排列功能。
+* 2015/03/26：完成監聽功能，可以在Android App接收GPIO輸入狀態。
+* 2015/03/18：開放原始程式碼，請參考[這裡](https://github.com/macdidi5/PiCommander/blob/master/ProjectNotes.md)的說明。
+* 2015/03/18：支援GPIO擴充晶片：MCP23008與MCP23017，請參考[這裡](https://github.com/macdidi5/PiCommander/blob/master/SupportGPIOExpander.md)。
+* 2015/03/16：覺得少了什麼？有錯誤？在[這裡](https://github.com/macdidi5/PiCommander/issues)留下你的想法！
+* 2015/03/16：開放PiCommander v0.1應用程式。[InstallAndPlay.md](https://github.com/macdidi5/PiCommander/blob/master/InstallAndPlay.md)
 
 ## 需求
 硬體：
